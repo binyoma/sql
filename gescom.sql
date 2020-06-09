@@ -553,24 +553,24 @@ INSERT INTO `categories` ( `cat_name`, `cat_parent_id`) VALUES
 
 --les données table posts
 
-INSERT INTO `posts`(`pos_libelle`) VALUES ('Directeur'),('RH'),('Comptable'),
+INSERT INTO `posts`(`pos_libelle`) VALUES ('Directeur'),('RH'),('Comptable')
  ,('Directeur commercial'),('Commercial'),('Community manager'),('Chargé de la clientèle'),
  ('Responsable Logistique'), ('Préparateur de commande');
 
 --les données table employees
 
  INSERT INTO `employees` (`emp_superior_id`,`emp_pos_id`,`emp_lastname`,`emp_firstname`,`emp_address`,`emp_zipcode`,`emp_city`,`emp_mail`,`emp_phone`,`emp_salary`,`emp_enter_date`,`emp_gender`,`emp_children`) 
-VALUES (NULL,11,"Glover","Acton","998-8100 Neque Ave","24674","Springdale","Phasellus@Donec.org",0556712025,"4246.53","2019-08-25 09:31:29","M",3);
+VALUES (NULL,1,"Glover","Acton","998-8100 Neque Ave","24674","Springdale","Phasellus@Donec.org",0556712025,"4246.53","2019-08-25 09:31:29","M",3);
 
 INSERT INTO `employees` (`emp_superior_id`,`emp_pos_id`,`emp_lastname`,`emp_firstname`,`emp_address`,`emp_zipcode`,`emp_city`,`emp_mail`,`emp_phone`,`emp_salary`,`emp_enter_date`,`emp_gender`,`emp_children`) 
-VALUES (81,12,"Hanson","Althea","Appartement 135-6536 Turpis Avenue","54107","Itabuna","risus@semelitpharetra.co.uk",0516467713,"3232.26","2021-05-06 02:55:40","F",2);
+VALUES (18,2,"Hanson","Althea","Appartement 135-6536 Turpis Avenue","54107","Itabuna","risus@semelitpharetra.co.uk",0516467713,"3232.26","2021-05-06 02:55:40","F",2);
 
 INSERT INTO `employees` (`emp_superior_id`,`emp_pos_id`,`emp_lastname`,`emp_firstname`,`emp_address`,`emp_zipcode`,`emp_city`,`emp_mail`,`emp_phone`,`emp_salary`,`emp_enter_date`,`emp_gender`,`emp_children`) 
-VALUES (81,12,"Hanson","Althea","Appartement 135-6536 Turpis Avenue","54107","Itabuna","risus@semelitpharetra.co.uk",0516467713,"3232.26","2021-05-06 02:55:40","F",2);
+VALUES (18,2,"Hanson","Althea","Appartement 135-6536 Turpis Avenue","54107","Itabuna","risus@semelitpharetra.co.uk",0516467713,"3232.26","2021-05-06 02:55:40","F",2);
 
 INSERT INTO `employees` (`emp_superior_id`,`emp_pos_id`,`emp_lastname`,`emp_firstname`,`emp_address`,`emp_zipcode`,`emp_city`,`emp_mail`,`emp_phone`,`emp_salary`,`emp_enter_date`,`emp_gender`,`emp_children`) 
-VALUES (81,13,"Boone","Linus","Appartement 151-5309 Aliquet Rd.","94522","Le Havre","malesuada@elitsedconsequat.edu",0690516745,"3222.06","2020-01-12 03:05:53","M",1),
-(81,14,"Green","Emery","1375 Molestie Ave","24515","Charsadda","enim.consequat.purus@sed.net",0513625244,"3523.27","2020-01-01 15:51:39","F",2);
+VALUES (81,3,"Boone","Linus","Appartement 151-5309 Aliquet Rd.","94522","Le Havre","malesuada@elitsedconsequat.edu",0690516745,"3222.06","2020-01-12 03:05:53","M",1),
+(18,4,"Green","Emery","1375 Molestie Ave","24515","Charsadda","enim.consequat.purus@sed.net",0513625244,"3523.27","2020-01-01 15:51:39","F",2);
 
 INSERT INTO `employees` (`emp_superior_id`,`emp_pos_id`,`emp_lastname`,`emp_firstname`,`emp_address`,`emp_zipcode`,`emp_city`,`emp_mail`,`emp_phone`,`emp_salary`,`emp_enter_date`,`emp_gender`,`emp_children`) 
 VALUES(85,15,"Abbott","Bethany","Appartement 579-1922 Ante Impasse","61343","Jonesboro","sagittis.semper@pharetrafelis.org",0239177097,"4176.79","2020-03-14 13:13:22","F",0),
