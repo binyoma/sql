@@ -552,7 +552,7 @@ INSERT INTO `categories` ( `cat_name`, `cat_parent_id`) VALUES
 ( 'Panneaux de clôture', 8);
 
 --les données table posts
-
+nn
 INSERT INTO `posts`(`pos_libelle`) VALUES ('Directeur'),('RH'),('Comptable')
  ,('Directeur commercial'),('Commercial'),('Community manager'),('Chargé de la clientèle'),
  ('Responsable Logistique'), ('Préparateur de commande');
@@ -569,25 +569,25 @@ INSERT INTO `employees` (`emp_superior_id`,`emp_pos_id`,`emp_lastname`,`emp_firs
 VALUES (18,2,"Hanson","Althea","Appartement 135-6536 Turpis Avenue","54107","Itabuna","risus@semelitpharetra.co.uk",0516467713,"3232.26","2021-05-06 02:55:40","F",2);
 
 INSERT INTO `employees` (`emp_superior_id`,`emp_pos_id`,`emp_lastname`,`emp_firstname`,`emp_address`,`emp_zipcode`,`emp_city`,`emp_mail`,`emp_phone`,`emp_salary`,`emp_enter_date`,`emp_gender`,`emp_children`) 
-VALUES (81,3,"Boone","Linus","Appartement 151-5309 Aliquet Rd.","94522","Le Havre","malesuada@elitsedconsequat.edu",0690516745,"3222.06","2020-01-12 03:05:53","M",1),
+VALUES (18,3,"Boone","Linus","Appartement 151-5309 Aliquet Rd.","94522","Le Havre","malesuada@elitsedconsequat.edu",0690516745,"3222.06","2020-01-12 03:05:53","M",1),
 (18,4,"Green","Emery","1375 Molestie Ave","24515","Charsadda","enim.consequat.purus@sed.net",0513625244,"3523.27","2020-01-01 15:51:39","F",2);
 
 INSERT INTO `employees` (`emp_superior_id`,`emp_pos_id`,`emp_lastname`,`emp_firstname`,`emp_address`,`emp_zipcode`,`emp_city`,`emp_mail`,`emp_phone`,`emp_salary`,`emp_enter_date`,`emp_gender`,`emp_children`) 
-VALUES(85,15,"Abbott","Bethany","Appartement 579-1922 Ante Impasse","61343","Jonesboro","sagittis.semper@pharetrafelis.org",0239177097,"4176.79","2020-03-14 13:13:22","F",0),
-(85,15,"Burt","Ursula","Appartement 328-9673 Faucibus Avenue","86914","Lives-sur-Meuse","quis.turpis.vitae@massa.co.uk",0180060699,"3021.34","2020-12-24 18:45:07","M",1),
-(85,15,"Ellison","Jakeem","265 Pellentesque Ave","90881","Broken Arrow","eget.volutpat.ornare@ProinmiAliquam.org",0268867377,"2127.64","2021-04-04 04:59:05","M",2),
-(85,15,"Gallagher","Wade","581-5711 Congue. Rd.","97723","Thon","Morbi@etultricesposuere.co.uk",0275296592,"3331.81","2019-08-07 06:35:58","M",2),
-(85,15,"Yang","Cheyenne","CP 154, 6953 Quisque Rd.","11599","Long Eaton","vitae.mauris.sit@velpedeblandit.com",0501759245,"4340.58","2020-05-23 10:02:47","F",2),
-(85,16,"Gardner","Emerald","6795 Sapien. Rd.","86562","Tejar","sem@magnaseddui.co.uk",0591864712,"2182.21","2020-11-16 22:28:07","M",0),
-(85,17,"Kline","Brielle","9710 Nullam Chemin","77941","Yaroslavl","ultricies.adipiscing@AliquamnislNulla.co.uk",0409457419,"2344.60","2020-01-05 13:37:18","F",0),
-(85,18,"Park","Maxwell","CP 586, 755 Rhoncus. Rue","19323","Burg","aptent.taciti.sociosqu@arcuVivamussit.co.uk",0326005787,"2173.44","2020-01-04 19:07:45","M",1);
+VALUES(24,5,"Abbott","Bethany","Appartement 579-1922 Ante Impasse","61343","Jonesboro","sagittis.semper@pharetrafelis.org",0239177097,"4176.79","2020-03-14 13:13:22","F",0),
+(24,5,"Burt","Ursula","Appartement 328-9673 Faucibus Avenue","86914","Lives-sur-Meuse","quis.turpis.vitae@massa.co.uk",0180060699,"3021.34","2020-12-24 18:45:07","M",1),
+(24,5,"Ellison","Jakeem","265 Pellentesque Ave","90881","Broken Arrow","eget.volutpat.ornare@ProinmiAliquam.org",0268867377,"2127.64","2021-04-04 04:59:05","M",2),
+(24,5,"Gallagher","Wade","581-5711 Congue. Rd.","97723","Thon","Morbi@etultricesposuere.co.uk",0275296592,"3331.81","2019-08-07 06:35:58","M",2),
+(24,5,"Yang","Cheyenne","CP 154, 6953 Quisque Rd.","11599","Long Eaton","vitae.mauris.sit@velpedeblandit.com",0501759245,"4340.58","2020-05-23 10:02:47","F",2),
+(24,6,"Gardner","Emerald","6795 Sapien. Rd.","86562","Tejar","sem@magnaseddui.co.uk",0591864712,"2182.21","2020-11-16 22:28:07","M",0),
+(24,7,"Kline","Brielle","9710 Nullam Chemin","77941","Yaroslavl","ultricies.adipiscing@AliquamnislNulla.co.uk",0409457419,"2344.60","2020-01-05 13:37:18","F",0),
+(24,8,"Park","Maxwell","CP 586, 755 Rhoncus. Rue","19323","Burg","aptent.taciti.sociosqu@arcuVivamussit.co.uk",0326005787,"2173.44","2020-01-04 19:07:45","M",1);
 
 
 INSERT INTO `employees` (`emp_superior_id`,`emp_pos_id`,`emp_lastname`,`emp_firstname`,`emp_address`,`emp_zipcode`,`emp_city`,`emp_mail`,`emp_phone`,`emp_salary`,`emp_enter_date`,`emp_gender`,`emp_children`) 
-VALUES(93,19,"Rogers","Olympia","CP 642, 1944 Nulla Impasse","84991","Lauro de Freitas","Integer.mollis@consectetueripsumnunc.org",0868980066,"1230.30","2021-04-04 16:46:52","F",2),
-(93,19,"Bartlett","Wesley","377 Libero Rd.","67938","Tolyatti","Aenean.eget.magna@aliquetmagna.org",0778910022,"2177.47","2020-02-04 14:01:47","M",1),
-(93,19,"Stephens","Cheyenne","CP 910, 5041 Mauris Av.","20674","Cholchol","augue.ac.ipsum@inceptoshymenaeos.edu",0461539005,"1260.13","2019-12-07 18:19:05","F",0),
-(93,19,"Diaz","Aquila","147-4919 Nec Chemin","76062","Haasdonk","nunc.ullamcorper@Sedegetlacus.ca",0708603824,"2287.35","2019-12-30 14:48:12","M",1);
+VALUES(32,9,"Rogers","Olympia","CP 642, 1944 Nulla Impasse","84991","Lauro de Freitas","Integer.mollis@consectetueripsumnunc.org",0868980066,"1230.30","2021-04-04 16:46:52","F",2),
+(32,9,"Bartlett","Wesley","377 Libero Rd.","67328","Tolyatti","Aenean.eget.magna@aliquetmagna.org",0778910022,"2177.47","2020-02-04 14:01:47","M",1),
+(32,9,"Stephens","Cheyenne","CP 910, 5041 Mauris Av.","20674","Cholchol","augue.ac.ipsum@inceptoshymenaeos.edu",0461539005,"1260.13","2019-12-07 18:19:05","F",0),
+(32,9,"Diaz","Aquila","147-4919 Nec Chemin","76062","Haasdonk","nunc.ullamcorper@Sedegetlacus.ca",0708603824,"2287.35","2019-12-30 14:48:12","M",1);
 
 --les données table suppliers
 
