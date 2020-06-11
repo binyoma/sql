@@ -973,10 +973,120 @@ WHERE cus_city LIKE "%divos%"
 --Q6. Quel est le produit vendu le moins cher ?
 
 SELECT * FROM products
-WHERE pro_price = (select MIN(pro_price) FROM products 
+WHERE pro_price = (select MIN(pro_price) FROM products )
 
 --Q7. Afficher les produits commandés par Jessica Pikatchien.
+SELECT pro_id,
+pro_cat_id,
+pro_price,
+pro_ref,
+pro_ean,
+pro_stock,
+pro_color,
+pro_name,
+pro_desc,
+pro_publish,
+pro_sup_id,
+pro_add_date,
+pro_update_date,
+pro_picture
+FROM products
+    INNER JOIN orders_details
+    ON products.pro_id =orders_details.ode_pro_id
+    INNER JOIN orders
+    ON orders_details.ode_ord_id = orders.ord_id
+    INNER JOIN customers
+    ON orders.ord_cus_id=customers.cus_id
+WHERE cus_lastname="Pikatchien"
+AND cus_firstname="Jessica"
+
+--Q8. Lister les produits qui n'ont jamais été vendus.
+
 SELECT * FROM products
-INNER JOIN orders_details 
-ON products.pro_id=orders_details.ode_pro_id
-INNER JOIN 
+WHERE pro_id NOT IN (SELECT ode_pro_id FROM orders_details )
+
+--Q9. Afficher l'organigramme hiérarchique de l'entreprise.
+
+SELECT pos_id,
+pos_libelle,
+emp_lastname,
+emp_firstname
+FROM posts
+INNER JOIN employees
+ON posts.pos_id = employees.emp_pos_id
+ORDER BY pos_id 
+
+--Q10. Afficher le catalogue des produits par catégorie, le nom des produits et de la catégorie doivent être affichés.
+
+SELECT pro_name,
+a.cat_name,
+b.cat_name
+FROM products
+INNER JOIN categories a
+ON products.pro_cat_id=a.cat_id
+INNER JOIN categories b
+ON a.cat_id = b.cat_parent_id 
+ORDER BY a.cat_name
+
+SELECT a.cat_name,
+b.cat_name,
+pro_name
+FROM  categories a
+INNER JOIN categories b
+ON a.cat_id = b.cat_parent_id 
+INNER JOIN products
+on b.cat_id=products.pro_cat_id
+ORDER BY a.cat_name
+
+SELECT products.*, a.cat_name, b.cat_name FROM products INNER JOIN categories a on products.pro_cat_id=a.cat_id INNER JOIN categories b ON a.cat_parent_id =b.cat_id ORDER BY a.cat_name 
+SELECT products.*, a.cat_name, b.cat_name FROM products INNER JOIN categories a on products.pro_cat_id=a.cat_id INNER JOIN categories b ON b.cat_parent_id =a.cat_id ORDER BY a.cat_name 
+
+--Q11. Quel produit a reçu la remise la plus élevée ?
+SELECT * 
+FROM products
+WHERE pro_id = (SELECT ode_pro_id FROM orders_details WHERE ode_discount = (select max(ode_discount) FROM orders_details))
+
+--Q12. Lister les commandes dont le total est inférieur à 100 €.
+SELECT orders.*,
+ode_unit_price*ode_quantity as "Tot"
+FROM orders
+INNER JOIN orders_details
+on ord_id=ode_ord_id
+WHERE (ode_unit_price*ode_quantity) < 100 
+ORDER BY ord_id
+
+--Q13. Combien y-a-t-il de clients canadiens ? Afficher dans une colonne intitulée 'Nb clients Canada'. 
+SELECT COUNT(cus_id) as "Nb clients Canada" 
+FROM customers 
+WHERE cus_countries_id LIKE "CA" 
+
+--Q14. Quel produit marche le mieux ?
+SELECT * FROM products
+WHERE pro_id =( 
+  SELECT ode_pro_id 
+  FROM orders_details 
+  GROUP BY ode_pro_id 
+  ORDER BY COUNT(ode_pro_id) DESC 
+  LIMIT 1)
+  
+--Q15. Quelle est la plus grande quantité commandée pour un seul produit et quel est ce produit ? 
+SELECT max(ode_quantity)
+from orders_details
+
+
+SELECT products.* FROM products 
+INNER JOIN orders_details
+ON pro_id =ode_pro_id
+WHERE ode_quantity = (SELECT max(ode_quantity)
+from orders_details)
+
+--Q16. Afficher le détail des commandes de 2020.
+SELECT orders_details.*
+FROM orders_details
+INNER JOIN orders
+on ord_id=ode_ord_id 
+WHERE ord_order_date LIKE "2020%"
+
+--Q17. Afficher les coordonnées des fournisseurs pour lesquels des commandes ont été passées.
+
+SELECT suppliers.
