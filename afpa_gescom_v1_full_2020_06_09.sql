@@ -1089,4 +1089,48 @@ WHERE ord_order_date LIKE "2020%"
 
 --Q17. Afficher les coordonnées des fournisseurs pour lesquels des commandes ont été passées.
 
-SELECT suppliers.
+SELECT distinct suppliers.*
+FROM suppliers
+INNER JOIN products 
+ON suppliers.sup_id = products.pro_sup_id
+INNER JOIN orders_details 
+ON products.pro_id = orders_details.ode_pro_id
+WHERE sup_id IN (SELECT pro_sup_id FROM products )
+AND pro_id IN (SELECT ode_pro_id FROM orders_details )
+
+--Q18. Quel est le chiffre d'affaires pour l'année 2020 ?
+
+SELECT SUM(ode_unit_price*ode_quantity)
+FROM orders_details
+WHERE ode_id IN (SELECT orders_details.ode_id
+FROM orders_details
+INNER JOIN orders
+on ord_id=ode_ord_id 
+WHERE ord_order_date LIKE "2020%")
+
+--Q19. Quel est le panier moyen ?
+/*SELECT sum(ode_unit_price*ode_quantity)
+FROM orders_details 
+GROUP BY ode_ord_id*/
+
+SELECT AVG(ode_unit_price*ode_quantity)
+FROM orders_details
+
+--Q20. Où le chiffre d'affaires à l'export est-il le plus élevé ? 
+
+SELECT ode_unit_price*ode_quantity, cou_name 
+FROM orders_details 
+inner JOIN orders
+ON ode_ord_id = ord_id
+INNER JOIN customers 
+on ord_cus_id =cus_id
+INNER JOIN countries 
+on cus_countries_id = cou_id 
+WHERE cou_id <>"FR"
+GROUP BY cou_name
+--Q21. Lister le total de chaque commande par total décroissant (Afficher numéro de commande, date, total et nom du client).
+ SELECT sum(ode_unit_price*ode_quantity)
+FROM orders_details 
+GROUP BY ode_ord_id
+
+--Q22. La version 2020 du produit barb004 s'appelle désormais Camper et, bonne nouvelle, son prix subit une baisse de 10%.
