@@ -71,14 +71,23 @@ WHERE pro_id NOT IN (SELECT ode_pro_id FROM orders_details )
 
 --Q9. Afficher l'organigramme hiérarchique de l'entreprise.
 
-SELECT pos_id,
-pos_libelle,
-emp_lastname,
-emp_firstname
-FROM posts
-INNER JOIN employees
-ON posts.pos_id = employees.emp_pos_id
-ORDER BY pos_id 
+SELECT a.emp_id as "ID superviseur",
+CONCAT(a.emp_lastname," ",a.emp_firstname) AS "Superviseur",
+c.pos_libelle as "Poste",
+b.emp_id as "ID employé",
+CONCAT(b.emp_lastname," ",b.emp_firstname) AS "Employé",
+d.pos_libelle as "Poste"
+FROM  employees a
+INNER JOIN employees b
+ON b.emp_superior_id = a.emp_id
+INNER JOIN posts c 
+ON a.emp_pos_id= c.pos_id 
+INNER JOIN posts d 
+ON b.emp_pos_id= d.pos_id 
+
+
+
+
 
 --Q10. Afficher le catalogue des produits par catégorie, le nom des produits et de la catégorie doivent être affichés.
 
@@ -112,11 +121,11 @@ WHERE pro_id = (SELECT ode_pro_id FROM orders_details WHERE ode_discount = (sele
 
 --Q12. Lister les commandes dont le total est inférieur à 100 €.
 SELECT orders.*,
-ode_unit_price*ode_quantity as "Tot"
+ode_unit_price*ode_quantity*(1-(ode_discount/100)) as "Tot"
 FROM orders
 INNER JOIN orders_details
 on ord_id=ode_ord_id
-WHERE (ode_unit_price*ode_quantity) < 100 
+WHERE ode_unit_price*ode_quantity*(1-(ode_discount/100)) < 100 
 ORDER BY ord_id
 
 --Q13. Combien y-a-t-il de clients canadiens ? Afficher dans une colonne intitulée 'Nb clients Canada'. 
